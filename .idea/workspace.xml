@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d914215c-314a-4908-accb-407aa3e2ac7d" name="默认的" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1txxCOvC1AiIKWq8NgEgzaYK8nj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/s-translate/assets" />
+      <recent name="$PROJECT_DIR$/src/components/s-clock/assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets" />
+      <recent name="$PROJECT_DIR$/src/components/s-weather/assets" />
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d914215c-314a-4908-accb-407aa3e2ac7d" name="默认的" comment="" />
+      <created>1623724413545</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623724413545</updated>
+      <workItem from="1623724414638" duration="8959000" />
+      <workItem from="1623806633735" duration="16755000" />
+      <workItem from="1623894079829" duration="17168000" />
+      <workItem from="1623980145205" duration="22352000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2145" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1623832889197">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state x="2145" y="141" key="#com.intellij.ide.util.MemberChooser/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623832889197" />
+    <state width="1059" height="560" key="GridCell.Tab.0.bottom" timestamp="1623751091494">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state width="1059" height="560" key="GridCell.Tab.0.bottom/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623751091494" />
+    <state width="1059" height="560" key="GridCell.Tab.0.center" timestamp="1623751091493">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state width="1059" height="560" key="GridCell.Tab.0.center/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623751091493" />
+    <state width="1059" height="560" key="GridCell.Tab.0.left" timestamp="1623751091492">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state width="1059" height="560" key="GridCell.Tab.0.left/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623751091492" />
+    <state width="1059" height="560" key="GridCell.Tab.0.right" timestamp="1623751091493">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state width="1059" height="560" key="GridCell.Tab.0.right/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623751091493" />
+    <state x="1841" y="57" key="SettingsEditor" timestamp="1623835519222">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state x="1841" y="57" key="SettingsEditor/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623835519222" />
+    <state x="1997" y="189" key="run.anything.popup" timestamp="1623833279829">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state x="1997" y="189" key="run.anything.popup/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623833279829" />
+    <state x="1997" y="-82" width="670" height="676" key="search.everywhere.popup" timestamp="1623833538631">
+      <screen x="1792" y="-526" width="1080" height="1895" />
+    </state>
+    <state x="1997" y="-82" width="670" height="676" key="search.everywhere.popup/1792.-526.1080.1895/0.25.1792.1095/2872.127.1920.1055@1792.-526.1080.1895" timestamp="1623833538631" />
+  </component>
+</project>
