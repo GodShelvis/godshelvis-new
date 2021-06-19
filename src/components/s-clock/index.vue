@@ -36,7 +36,7 @@ getNowTime()
   height: 160px;
   border-radius: 80px;
   background-color: #F2F2F2;
-  border: 5px #2E465D solid;
+  border: 5px #595bf1 solid;
   box-sizing: border-box;
   box-shadow: -1px -1px 2px #FFFFFF, 1px 1px 2px #CECECE, 0px 0px 0px #2E465D inset;
   display: flex;
@@ -44,12 +44,14 @@ getNowTime()
   justify-content: center;
   align-items: center;
   transition: 0.2s;
-  color: #2E465D;
+  color: #595bf1;
+  text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #CECECE;
 }
 .clock-area:hover{
   background-color: #D7E6F4;
   border: 5px #F2F2F2 solid;
   box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px #CECECE, 2px 2px 30px #2E465D inset;
+  text-shadow: 0px 0px 0px #FFFFFF, 0px 0px 0px #CECECE;
 }
 .clock-area:hover p{
   color: #616650;
