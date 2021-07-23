@@ -35,26 +35,26 @@ getNowTime()
   width: 160px;
   height: 160px;
   border-radius: 80px;
-  background-color: #F2F2F2;
-  border: 5px #595bf1 solid;
+  background-color: #798c7e;
+  border: 5px #f2f2f2 solid;
   box-sizing: border-box;
-  box-shadow: -1px -1px 2px #FFFFFF, 1px 1px 2px #CECECE, 0px 0px 0px #2E465D inset;
+  box-shadow: -1px -1px 2px #FFFFFF, 1px 1px 2px #CECECE, 2px 2px 20px #000000cc inset;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: 0.2s;
-  color: #595bf1;
-  text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #CECECE;
+  color: #000000cc;
+  text-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
 }
 .clock-area:hover{
-  background-color: #D7E6F4;
+  background-color: #b1cbb7;
   border: 5px #F2F2F2 solid;
-  box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px #CECECE, 2px 2px 30px #2E465D inset;
+  box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px #CECECE, 2px 2px 20px #000000cc inset;
   text-shadow: 0px 0px 0px #FFFFFF, 0px 0px 0px #CECECE;
 }
 .clock-area:hover p{
-  color: #616650;
+  color: #000000cc;
 }
 .clock-title{
   margin: 0;

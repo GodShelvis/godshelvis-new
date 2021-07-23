@@ -1,81 +1,55 @@
 <template>
   <div class="no-select weather-area" @mouseenter="enterHover" @mouseleave="leaveHover">
     <div v-if="loadOver">
-      <div v-if="s1show" class="weather">
-        <img class="weather-icon s1" :src="`/static/s1/${weather.icon}.png`" alt="">
+      <div class="weather">
+        <img class="weather-icon s1" :src="`/static/s2/${weather.icon}.png`" alt="">
         <div class="weather-info">
-          <p class="weather-location">{{location.adm1}}/{{location.name}}</p>
+          <p class="weather-location">{{location}}</p>
           <p class="weather-message">{{weather.temp}}°C {{weather.text}}</p>
         </div>
       </div>
     </div>
-<!--    <transition>-->
-<!--      <div v-if="loadOver && s2show" class="weather-active">-->
-<!--        <img class="weather-icon" :src="`/static/s2/${weather.icon}.png`" alt="">-->
-<!--        <div class="weather-info">-->
-<!--          <p class="weather-location">{{location.adm1}}/{{location.name}}</p>-->
-<!--          <p class="weather-message">{{weather.temp}}°C {{weather.text}}</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </transition>-->
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref } from 'vue'
 import fly from 'flyio'
 
 let longitude = ref(121.60);
 let latitude = ref(31.20);
-let location = ref({});
+let location = ref('');
 let weather = ref({});
-let locationApi:string
 let weatherApi:string
 let loadOver = ref(false)
 let hoverStatus = ref(false)
-let s1show = ref(true)
-let s2show = ref(false)
 
-navigator.geolocation.getCurrentPosition((positon)=>{
-  longitude.value = Number(positon.coords.longitude.toFixed(2))
-  latitude.value = Number(positon.coords.latitude.toFixed(2))
-  locationApi = `https://geoapi.qweather.com/v2/city/lookup?location=${longitude.value},${latitude.value}&key=6099ae81fe7a4d508f625c01cebe41a3`
+import { jsonp } from 'vue-jsonp'
+
+jsonp('https://api.map.baidu.com/location/ip?ak=UM0qhKUufFxQXhGSNuvdSKyhQ6CQ1U36&coor=bd09ll').then(res => {
+  console.log(res)
+  location.value = res.content.address
+  let positon: {x: number, y: number} = res.content.point
+  longitude.value = Number(positon.x).toFixed(2)
+  latitude.value = Number(positon.y).toFixed(2)
   weatherApi = `https://devapi.qweather.com/v7/weather/now?location=${longitude.value},${latitude.value}&key=6099ae81fe7a4d508f625c01cebe41a3`
 
-  fly.get(locationApi).then((res)=>{
+  fly.get(weatherApi).then((res)=>{
     if (res.data.code == 200){
-      location.value = res.data.location[0]
-      fly.get(weatherApi).then((res)=>{
-        if (res.data.code == 200){
-          weather.value = res.data.now
-          console.log(weather.value)
-          loadOver.value = true
-        }
-      }).catch((err)=>{
-        console.log(err)
-      })
+      weather.value = res.data.now
+      console.log(weather.value)
+      loadOver.value = true
     }
   }).catch((err)=>{
     console.log(err)
   })
-},(err)=>{
-  console.log(err);
 })
 
 const enterHover = function () {
   hoverStatus.value = false
-  s1show.value = false
-  setTimeout(()=>{
-    s2show.value = true
-  },500)
 }
 
 const leaveHover = function () {
   hoverStatus.value = true
-  s2show.value = false
-  setTimeout(()=>{
-    s1show.value = true
-  },500)
 }
 
 </script>
@@ -89,7 +63,7 @@ const leaveHover = function () {
   border: 0px #f2f2f2 solid;
   box-sizing: border-box;
   box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #BEBEBE, 0px 0px 0px #97C8EB inset, 0px 0px 0px #1D6A9F inset;
-  transition: 2s;
+  transition: 0.2s;
 }
 .weather-area:hover{
   color: #485156;
