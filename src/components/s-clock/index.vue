@@ -45,13 +45,11 @@ getNowTime()
   align-items: center;
   transition: 0.2s;
   color: #000000cc;
-  text-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
 }
 .clock-area:hover{
   background-color: #b1cbb7;
   border: 5px #F2F2F2 solid;
   box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px #CECECE, 2px 2px 20px #000000cc inset;
-  text-shadow: 0px 0px 0px #FFFFFF, 0px 0px 0px #CECECE;
 }
 .clock-area:hover p{
   color: #000000cc;
@@ -72,7 +70,8 @@ getNowTime()
   line-height: 27px;
 }
 .led{
-  font-family: led
+  font-family: led;
+  font-weight: normal;
 }
 @font-face {
   font-family: led;

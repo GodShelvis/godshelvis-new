@@ -5,7 +5,7 @@
       <span>{{year}} 年</span>
     </div>
     <div class="mini-calendar">
-      <div :class="`calendar-day${date.date == today?'-today':''}`" v-for="date in dateArray">
+      <div :class="`calendar-day${date.date == today?'-today':''}`" v-for="date in dateArray" :key="date.date">
         <div class="weekday">{{ weekFormatArray[date.weekday] }}</div>
         <div :class="`date${date.date == today?'-today':''}`">{{ date.date }}</div>
       </div>
@@ -22,7 +22,7 @@ const today = currentDate.getDate()
 const weekday = currentDate.getDay()
 
 let firstDate = new Date(currentDate.setDate(today - weekday))
-let dateArray = []
+let dateArray:Object[] = []
 for (let i = 0; i < 7; i++) {
   let _date: Date = firstDate
   firstDate.setDate(firstDate.getDate() + 1)

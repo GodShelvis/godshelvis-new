@@ -4,17 +4,16 @@
       <Search class="search-logo"/>
       {{searchChannel[currentChannel].name}}
     </div>
-    <input type="text" class="search-input" v-model="input" @keydown.enter="redirectTo">
+    <input type="text" class="search-input" spellcheck =“false” v-model="input" @keydown.enter="redirectTo">
   </div>
 </template>
 
 <script setup lang="ts">
-import { NInput, NIcon } from 'naive-ui'
 import { Search } from '@vicons/ionicons5'
 import {ref} from 'vue'
 
-let currentChannel: number = ref(0)
-let input:String = ref('')
+let currentChannel = ref(0)
+let input = ref('')
 
 type ChannelType = {
   name: String,
@@ -39,8 +38,9 @@ const switchChannel = function (){
 }
 
 const redirectTo = ()=>{
-  console.log(input.value)
-  window.location.href = searchChannel[currentChannel.value].redirect + input.value
+  if (input.value != '') {
+    window.location.href = searchChannel[currentChannel.value].redirect + input.value
+  }
 }
 
 
@@ -76,7 +76,8 @@ const redirectTo = ()=>{
   color: #666666;
   padding-left: 20px;
   font-size: 30px;
-  font-family: PingFangSC-Semibold, sans-serif;
+  font-weight: 600;
+  font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
   text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #CECECE;
   caret-color: #666666;
   transition: 0.2s;

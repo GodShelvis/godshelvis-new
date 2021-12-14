@@ -2,30 +2,78 @@
 <div class="translate-area">
   <div class="translate-input">
     <div class="input-area">
-      <input class="real-input" type="text" v-model="input" @keydown.enter="translate(input)">
+      <input class="real-input" spellcheck =“false” type="text" v-model="transConfig.q" @keydown.enter="translate(transConfig.q)">
     </div>
-    <div class="translate-button" @click="translate(input)">
+    <div class="translate-button" @click="translate(transConfig.q)">
       <img style="width: 30px; height: 30px; margin: 8px" src="./assets/translate.png" alt="">
     </div>
   </div>
-  <div v-if="output != ''" class="translate-output">
+  <p :class="`translate-output${output == ''?'-before':''} ${copied?'copied':''}`" @contextmenu.prevent="cleanOutput" v-clipboard="output.trim()" v-clipboard:success="copySuccess">
     {{ output }}
-  </div>
+  </p>
 </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
+import {reactive, ref} from 'vue';
+import md5 from 'js-md5/src/md5';
+import fly from 'flyio'
+import { jsonp } from 'vue-jsonp'
 
-let input = ref('')
 let output = ref('')
+// 是否已复制,控制翻译颜色
+let copied = ref(false)
+let transConfig = reactive({
+  q: '',
+  from: 'auto',
+  to: '',
+  appid: '20211130001014730',
+  salt: 'shelvis',
+  sign: ''
+})
 
-const translate = (input:String)=>{
+const cleanOutput = ()=>{
+  output.value = ''
+  copied.value = false
+}
+const translate = (input:string)=>{
   if (input == '') {
     output.value = ''
+    copied.value = false
   } else {
-    output.value = 'vt. 翻译；转化；解释；转变为；调动'
+    copied.value = false
+    transConfig.q = input.trim()
+    let sign = createSign(transConfig.q,transConfig.appid,transConfig.salt)
+    transConfig.sign = sign
+    if(/.*[\u4e00-\u9fa5]+.*$/.test(input)) {
+      transConfig.to = 'en'
+    } else {
+      transConfig.to = 'zh'
+    }
+    jsonp('https://fanyi-api.baidu.com/api/trans/vip/translate',transConfig).then(res => {
+      if(res.error_code == undefined) {
+        output.value = res.trans_result[0].dst
+      } else if(res.error_code == 54004) {
+        output.value = '今日次数已用完.'
+      } else {
+        output.value = '接口异常请联系管理员.'
+      }
+    })
   }
+}
+
+const createSign = (q:String, appid: String, salt: String)=>{
+  if (q == '') {
+    output.value = ''
+  } else {
+    let sign = `${appid}${q}${salt}pHAAiPR_e8ZRT5l9zSQU`;
+    let encodeSign = md5(sign)
+    return encodeSign
+  }
+}
+
+const copySuccess = () =>{
+  copied.value = true
 }
 </script>
 
@@ -68,7 +116,8 @@ const translate = (input:String)=>{
   border-radius: 25px 0 0 25px;
   outline: none;
   font-size: 25px;
-  font-family: PingFangSC-Regular, sans-serif;
+  font-weight: 600;
+  font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
   padding-left: 18.5px;
   caret-color: #3F3F3F;
   color: #3F3F3F;
@@ -88,12 +137,27 @@ const translate = (input:String)=>{
 .translate-button:active{
   box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
 }
+.translate-output-before{
+  width: 100%;
+  text-align: start;
+  margin: 0px 23px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
+  color: #3F3F3F;
+  transition: 0.2s linear;
+}
 .translate-output{
   width: 100%;
   text-align: start;
   margin: 5px 23px 15px;
   font-size: 18px;
-  font-family: PingFangSC-Medium, sans-serif;
+  font-weight: 600;
+  font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
   color: #3F3F3F;
+  transition: 0.2s linear;
+}
+.copied{
+  color: #CECECE;
 }
 </style>

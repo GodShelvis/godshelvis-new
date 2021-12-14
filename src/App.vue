@@ -1,15 +1,18 @@
 <template>
-  <router-view path="/home"></router-view>
+  <!-- <router-view path="/home"></router-view> -->
+  <Home></Home>
 </template>
 
 <script setup lang="ts">
-
+import Home from './views/home/index'
 </script>
 
 <style>
 body{
   margin: 0;
-  background-color: #f2f2f2;
+  background-color: #e9e9e9;
+  font-weight: 600;
+  font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
 }
 #app {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
@@ -33,28 +36,28 @@ body{
   user-select: none; /* Non-prefixed version, currently */
 }
 
-@font-face {
+/* @font-face {
   font-family: PingFangSC-Light;
   src: url('/static/fonts/PingFangSC-Light.ttf');
-}
-@font-face {
+} */
+/* @font-face {
   font-family: PingFangSC-Medium;
   src: url('/static/fonts/PingFangSC-Medium.ttf');
-}
-@font-face {
+} */
+/* @font-face {
   font-family: PingFangSC-Regular;
   src: url('/static/fonts/PingFangSC-Regular.ttf');
 }
 @font-face {
   font-family: PingFangSC-Semibold;
   src: url('/static/fonts/PingFangSC-Semibold.ttf');
-}
-@font-face {
+} */
+/* @font-face {
   font-family: PingFangSC-Thin;
   src: url('/static/fonts/PingFangSC-Thin.ttf');
 }
 @font-face {
   font-family: PingFangSC-Ultralight;
   src: url('/static/fonts/PingFangSC-Ultralight.ttf');
-}
+} */
 </style>

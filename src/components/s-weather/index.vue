@@ -2,10 +2,11 @@
   <div class="no-select weather-area" @mouseenter="enterHover" @mouseleave="leaveHover">
     <div v-if="loadOver">
       <div class="weather">
-        <img class="weather-icon s1" :src="`/static/s2/${weather.icon}.png`" alt="">
+        <img class="weather-icon s1" :src="`/weather/${weather.icon}.png`" alt="">
         <div class="weather-info">
           <p class="weather-location">{{location}}</p>
-          <p class="weather-message">{{weather.temp}}°C {{weather.text}}</p>
+          <p class="weather-message">{{weather.temp}}°C</p>
+          <p class="weather-message2">{{weather.text}}</p>
         </div>
       </div>
     </div>
@@ -26,17 +27,15 @@ let hoverStatus = ref(false)
 import { jsonp } from 'vue-jsonp'
 
 jsonp('https://api.map.baidu.com/location/ip?ak=UM0qhKUufFxQXhGSNuvdSKyhQ6CQ1U36&coor=bd09ll').then(res => {
-  console.log(res)
   location.value = res.content.address
   let positon: {x: number, y: number} = res.content.point
-  longitude.value = Number(positon.x).toFixed(2)
-  latitude.value = Number(positon.y).toFixed(2)
+  longitude.value = Number(Number(positon.x).toFixed(2))
+  latitude.value = Number(Number(positon.y).toFixed(2))
   weatherApi = `https://devapi.qweather.com/v7/weather/now?location=${longitude.value},${latitude.value}&key=6099ae81fe7a4d508f625c01cebe41a3`
 
   fly.get(weatherApi).then((res)=>{
     if (res.data.code == 200){
       weather.value = res.data.now
-      console.log(weather.value)
       loadOver.value = true
     }
   }).catch((err)=>{
@@ -60,25 +59,25 @@ const leaveHover = function () {
   height: 160px;
   border-radius: 30px;
   background-color: #f2f2f2;
-  border: 0px #f2f2f2 solid;
+  border: 5px #f2f2f2 solid;
   box-sizing: border-box;
   box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #BEBEBE, 0px 0px 0px #97C8EB inset, 0px 0px 0px #1D6A9F inset;
   transition: 0.2s;
 }
 .weather-area:hover{
-  color: #485156;
+  color: #50636b;
   background-color: #CDE7F6;
   border: 5px #F2F2F2 solid;
   box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px #BEBEBE, -10px -10px 30px #97C8EB inset, 10px 10px 30px #1D6A9F inset;
 }
 .weather-icon{
-  margin-left: 0;
+  margin-left: 20px;
   width: 160px;
   /* background-color: #fff; */
 }
 .weather-info{
   width: 160px;
-  margin-right: 20px;
+  margin-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,6 +90,10 @@ const leaveHover = function () {
 .weather-message{
   margin: 0;
   font-size: 35px;
+}
+.weather-message2{
+  margin: 0;
+  font-size: 16px;
 }
 
 .weather{
@@ -105,7 +108,7 @@ const leaveHover = function () {
   justify-content: center;
   align-items: center;
 }
-s1-enter-from,
+/* s1-enter-from,
 s1-leave-to{
  opacity: 0;
 }
@@ -115,5 +118,5 @@ s1-enter-to{
 }
 s1-enter-active{
   transition: all 0.1s ease-in;
-}
+} */
 </style>

@@ -55,14 +55,15 @@ const redirectTo = (url: String)=>{
   text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
 }
 .bookmark-name{
-  width: 65px;
+  width: 85px;
   text-align: start;
   margin-right: 10px;
 }
 .bookmark-description{
   width: 100%;
   text-align: start;
-  font-family: PingFangSC-Regular, sans-serif;
+  font-weight: 100;
+  font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
   color: #6666667f;
 }
 </style>
