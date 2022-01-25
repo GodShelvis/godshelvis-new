@@ -36,7 +36,7 @@ getNowTime()
   height: 160px;
   border-radius: 80px;
   background-color: #798c7e;
-  border: 5px #f2f2f2 solid;
+  border: 5px #F2F2F2 solid;
   box-sizing: border-box;
   box-shadow: -1px -1px 2px #FFFFFF, 1px 1px 2px #CECECE, 2px 2px 20px #000000cc inset;
   display: flex;

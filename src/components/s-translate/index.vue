@@ -81,6 +81,7 @@ const copySuccess = () =>{
 .translate-area{
   width: 100%;
   /*min-height: 130px;*/
+  background: #F2F2F2;
   border-radius: 30px;
   transition: 0.2s;
   box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
@@ -93,12 +94,14 @@ const copySuccess = () =>{
 .translate-input{
   width: calc( 100% - 10px );
   height: 50px;
+  background: #F2F2F2;
   border-radius: 25px;
   margin: 5px;
   box-shadow: 0px 0px 0px #FFFFFF inset, 0px 0px 0px #CECECE inset;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transition: 0.2s;
 }
 .translate-input:hover{
   box-shadow: -1px -1px 3px #FFFFFF inset, 1px 1px 3px #CECECE inset;
@@ -129,7 +132,7 @@ const copySuccess = () =>{
   background-color: #4C8FED;
   border-radius: 23px;
   box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
-  transition: 0.1s;
+  transition: 0.2s;
 }
 .translate-button:hover{
   box-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #CECECE;

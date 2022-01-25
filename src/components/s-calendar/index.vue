@@ -37,7 +37,7 @@ for (let i = 0; i < 7; i++) {
 .calendar-area{
   width: 100%;
   height: 160px;
-  background-color: #f2f2f2;
+  background-color: #F2F2F2;
   border-radius: 10px;
   border: 5px #F2F2F2 solid;
   box-sizing: border-box;
@@ -58,7 +58,7 @@ for (let i = 0; i < 7; i++) {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: #f2f2f2;
+  color: #F2F2F2;
   font-size: 20px;
   transition: 0.2s;
 }

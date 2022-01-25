@@ -68,7 +68,7 @@ const redirectTo = ()=>{
 .search-input{
   width: 100%;
   height: 80px;
-  background-color: #f2f2f2;
+  background-color: #F2F2F2;
   border-radius: 5px;
   box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #CECECE inset;
   border: none;

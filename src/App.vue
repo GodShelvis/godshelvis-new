@@ -10,7 +10,7 @@ import Home from './views/home/index'
 <style>
 body{
   margin: 0;
-  background-color: #e9e9e9;
+  background-color: #F2F2F2;
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
 }

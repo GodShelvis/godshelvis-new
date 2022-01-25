@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="beian-area">
-      <a class="beian" href="http://www.beian.miit.gov.cn/">鄂ICP备19004172号-1</a>
+      <a class="beian" href="http://beian.miit.gov.cn/">鄂ICP备19004172号-1</a>
       <!-- <a class="godshelvis-home" href="https://www.godshelvis.com/">GodShelvis.com</a> -->
     </div>
   </div>
@@ -153,9 +153,14 @@ const bookmarks3 = {
 }
 .beian{
   margin-right: 75px;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+  color: #ababab88;
+  text-shadow: -0px -0px 0px #ffffff, 0px 0px 0px #bdbdbd;
 }
+a{text-decoration: none;}
+a:visited{text-decoration: none;}
+a:hover {text-decoration: none;}
+a:active{text-decoration:none;}
 .godshelvis-home{
   margin-right: 25px;
   font-size: 14px;

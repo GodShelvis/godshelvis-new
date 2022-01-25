@@ -28,7 +28,7 @@ const redirectTo = (url: String)=>{
 .bookmark-area{
   width: 100%;
   min-height: 50px;
-  background-color: #f2f2f2;
+  background-color: #F2F2F2;
   border-radius: 5px;
   box-shadow: -2px -2px 2px 0 #FFFFFF, 2px 2px 2px 0 #CECECE;
   padding-bottom: 15px;
@@ -41,7 +41,7 @@ const redirectTo = (url: String)=>{
   width: calc( 100% - 15px );
   height: 30px;
   border-radius: 5px 5px 0 0;
-  color: #f2f2f2;
+  color: #F2F2F2;
   text-align: start;
   padding: 5px 0 0 15px;
 }
@@ -50,9 +50,10 @@ const redirectTo = (url: String)=>{
   width: 100%;
   display: flex;
   flex-direction: row;
+  transition: 0.2s;
 }
 .bookmark:hover{
-  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
+  text-shadow: -1px -1px 0px #FFFFFF, 1px 1px 0px #CECECE;
 }
 .bookmark-name{
   width: 85px;
