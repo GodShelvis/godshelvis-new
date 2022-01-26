@@ -12,6 +12,7 @@ body{
   margin: 0;
   background-color: #F2F2F2;
   font-weight: 600;
+  min-width: 1440px;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
 }
 #app {
