@@ -2,23 +2,50 @@
   <div class="home-space">
     <div class="home-layor">
       <div class="home-list">
-        <SSearch></SSearch>
-        <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks1"></SBookmark>
-        <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks2"></SBookmark>
-        <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks3"></SBookmark>
+        <SSearch style="width: 540px"></SSearch>
+        <!-- <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks1"></SBookmark> -->
+        <!-- <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks2"></SBookmark> -->
+        <!-- <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks3"></SBookmark> -->
+        <Swiper style="width: 600px;" :mousewheel="true">
+          <swiper-slide v-for="(group,index) in bookmarks" :key="index">
+            <div class="icon-group">
+              <SBookmarkIcon :name="bookmark.icon" :url="bookmark.url" v-for="(bookmark,index) in group" :key="index"></SBookmarkIcon>
+              <!-- <SBookmarkIcon name="douyu"></SBookmarkIcon>
+              <SBookmarkIcon name="yinfans"></SBookmarkIcon>
+              <SBookmarkIcon name="youtube"></SBookmarkIcon>
+              <SBookmarkIcon name="taobao"></SBookmarkIcon>
+              <SBookmarkIcon name="jd"></SBookmarkIcon> -->
+            </div>
+          </swiper-slide>
+          <!-- <swiper-slide>
+            <div class="icon-group">
+              <SBookmarkIcon name="zhihu"></SBookmarkIcon>
+              <SBookmarkIcon name="macwk"></SBookmarkIcon>
+              <SBookmarkIcon name="aliyun"></SBookmarkIcon>
+              <SBookmarkIcon name="github"></SBookmarkIcon>
+              <SBookmarkIcon name="tencent-doc"></SBookmarkIcon>
+              <SBookmarkIcon name="gmail"></SBookmarkIcon>
+            </div>
+          </swiper-slide> -->
+        </Swiper>
+        <SCalendar style="width: 540px; margin: 0 25px 30px 25px"></SCalendar>
+        <div style="width: 540px; display: flex; flex-direction: row; justify-content: space-between;">
+          <SWeather></SWeather>
+          <SClock></SClock>
+        </div>
+        <STranslate style="width: 540px; margin-top: 30px"></STranslate>
       </div>
-      <div class="plugin-list">
+      <!-- <div class="plugin-list">
         <SCalendar style="margin-bottom: 30px"></SCalendar>
         <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
           <SWeather></SWeather>
           <SClock></SClock>
         </div>
         <STranslate style="margin-top: 30px"></STranslate>
-      </div>
+      </div> -->
     </div>
     <div class="beian-area">
       <a class="beian" href="http://beian.miit.gov.cn/">鄂ICP备19004172号-1</a>
-      <!-- <a class="godshelvis-home" href="https://www.godshelvis.com/">GodShelvis.com</a> -->
     </div>
   </div>
   
@@ -28,103 +55,111 @@
 <script setup lang="ts">
 import SSearch from '../../components/s-search'
 import SBookmark from '../../components/s-bookmark'
+import SBookmarkIcon from '../../components/s-bookmark/BookmarkIcon.vue'
 import SCalendar from '../../components/s-calendar'
 import SWeather from '../../components/s-weather'
 import SClock from '../../components/s-clock'
 import STranslate from '../../components/s-translate'
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import SwiperCore, { Mousewheel } from 'swiper';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/mousewheel'
 
-const bookmarks1 = {
-  title: '视频',
-  color: '#F26D48',
-  bookmarks: [
+SwiperCore.use([Mousewheel])
+
+const bookmarks = [
+  [
     {
       name: 'bilibili',
+      icon: 'bilibili',
       description: '哔哩哔哩弹幕视频网',
       url: 'https://www.bilibili.com'
     },
     {
       name: '斗鱼',
+      icon: 'douyu',
       description: '斗鱼直播平台',
       url: 'https://www.douyu.com/directory/myFollow'
     },
     {
       name: '音范丝',
+      icon: 'yinfans',
       description: '音范丝|影音集|精选4K蓝光原盘下载，顶级收藏',
       url: 'www.yinfans.me'
     },
     {
-      name: '高清网',
-      description: '高清电影网|720P|1080P|蓝光原盘|磁力链迅雷下载高清的电影天堂',
-      url: 'http://gaoqing.la/'
-    }
-  ]
-}
-const bookmarks2 = {
-  title: '生活常用',
-  color: '#75CD5F',
-  bookmarks: [
+      name: 'youtube',
+      icon: 'youtube',
+      description: '',
+      url: 'https://youtube.com/'
+    },
     {
       name: '淘宝',
+      icon: 'taobao',
       description: '淘宝网',
       url: 'https://www.taobao.com/'
     },
     {
       name: '京东',
+      icon: 'jd',
       description: '京东商城',
       url: 'https://www.jd.com/'
-    },
+    }
+  ],
+  [
     {
       name: '知乎',
+      icon: 'zhihu',
       description: '有问题就会有答案',
       url: 'https://www.zhihu.com/'
     },
     {
       name: 'MacWk',
+      icon: 'macwk',
       description: 'MacWk - 精品mac软件下载',
       url: 'https://www.macwk.com/'
-    }
-  ]
-}
-
-const bookmarks3 = {
-  title: '工作常用',
-  color: 'rgb(81 134 213)',
-  bookmarks: [
+    },
     {
       name: '阿里云',
+      icon: 'aliyun',
       description: '阿里云服务',
       url: 'https://www.aliyun.com/'
     },
     {
       name: 'Github',
+      icon: 'github',
       description: '代码托管平台',
       url: 'https://github.com/'
     },
     {
       name: '腾讯文档',
+      icon: 'tencent-doc',
       description: '在线文档编辑分享',
       url: 'https://docs.qq.com/'
     },
     {
       name: 'Gmail',
+      icon: 'gmail',
       description: 'Google邮箱',
       url: 'https://accounts.google.com/b/0/AddMailService'
     }
   ]
-}
+]
 </script>
 
 <style scoped>
 .home-space {
-  width: 1440px;
+  width: 660px;
   min-height: 880px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-.home-layor {
-  width: 1440px;
+.home-layor{
+  width: 660px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -151,9 +186,16 @@ const bookmarks3 = {
   display: flex;
   flex-direction: row-reverse;
 }
+.home-list{
+  width: 660px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
 .beian{
   margin-right: 75px;
-  font-size: 16px;
+  font-size: 14px;
   color: #ababab88;
   text-shadow: -0px -0px 0px #ffffff, 0px 0px 0px #bdbdbd;
 }
@@ -165,5 +207,25 @@ a:active{text-decoration:none;}
   margin-right: 25px;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.12);
+}
+
+/* 图标组 */
+.icon-group{
+  width: 600px;
+  height: 80px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: row;
+}
+</style>
+<style lang="scss" scoped>
+@import url('../../../node_modules/swiper/swiper.min.css');
+.swiper-container{
+  width: 600px;
+  height: 80px;
+}
+.swiper-wrapper{
+  width: 600px;
+  height: 80px;
 }
 </style>

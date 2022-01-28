@@ -84,12 +84,12 @@ const copySuccess = () =>{
   background: #F2F2F2;
   border-radius: 30px;
   transition: 0.2s;
-  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
+  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
   display: flex;
   flex-direction: column;
 }
 .translate-area:hover{
-  box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px #CECECE;
+  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7;
 }
 .translate-input{
   width: calc( 100% - 10px );
@@ -97,14 +97,14 @@ const copySuccess = () =>{
   background: #F2F2F2;
   border-radius: 25px;
   margin: 5px;
-  box-shadow: 0px 0px 0px #FFFFFF inset, 0px 0px 0px #CECECE inset;
+  box-shadow: 0px 0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   transition: 0.2s;
 }
 .translate-input:hover{
-  box-shadow: -1px -1px 3px #FFFFFF inset, 1px 1px 3px #CECECE inset;
+  box-shadow: -1px -1px 3px #FFFFFF inset, 1px 1px 3px #B2BBC7 inset;
 }
 .input-area{
   width: calc( 100% - 50px );
@@ -122,8 +122,8 @@ const copySuccess = () =>{
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
   padding-left: 18.5px;
-  caret-color: #3F3F3F;
-  color: #3F3F3F;
+  caret-color: #979FAA;
+  color: #5D6268;
   background-color: transparent;
 }
 .translate-button{
@@ -131,14 +131,14 @@ const copySuccess = () =>{
   height: 46px;
   background-color: #4C8FED;
   border-radius: 23px;
-  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
+  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #B2BBC7;
   transition: 0.2s;
 }
 .translate-button:hover{
-  box-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #CECECE;
+  box-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #B2BBC7;
 }
 .translate-button:active{
-  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
+  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #B2BBC7;
 }
 .translate-output-before{
   width: 100%;

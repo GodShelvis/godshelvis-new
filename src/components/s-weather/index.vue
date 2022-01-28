@@ -2,7 +2,7 @@
   <div class="no-select weather-area" @mouseenter="enterHover" @mouseleave="leaveHover">
     <div v-if="loadOver">
       <div class="weather">
-        <img class="weather-icon s1" :src="`/weather/${weather.icon}.png`" onerror="this.src='/weather/102.png'" alt="">
+        <img class="weather-icon" :src="`/weather/${weather.icon}.png`" onerror="this.src='/weather/102.png'" alt="">
         <div class="weather-info">
           <p class="weather-location">{{location}}</p>
           <p class="weather-message">{{weather.temp}}°C</p>
@@ -55,31 +55,36 @@ const leaveHover = function () {
 
 <style scoped>
 .weather-area{
-  color: #666666;
+  color: #5D6268;
   width: 350px;
   height: 160px;
   border-radius: 30px;
   background-color: #F2F2F2;
   border: 5px #F2F2F2 solid;
   box-sizing: border-box;
-  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #BEBEBE, 0px 0px 0px #FFFFFF inset, 0px 0px 0px #CECECE inset;
+  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7, 0px 0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset;
   transition: 0.2s;
 }
 .weather-area:hover{
-  color: #4b6f7e;
+  color: #5D6268;
   background-color: #d2e6f5;
   border: 5px #F2F2F2 solid;
-  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px #BEBEBE, -10px -10px 20px #e2eef7 inset, 10px 10px 20px #a9c8e0 inset;
+  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7, -10px -10px 20px #e2eef7 inset, 10px 10px 20px #a9c8e0 inset;
 }
 .weather-icon{
   margin-left: 20px;
   width: 160px;
   transition: 0.3s ease-out;
-  filter: drop-shadow(-0px -0px -10px #FFFFFF88)
+  -webkit-filter: drop-shadow(-0px -0px -0px #B2BBC7);
+  filter: drop-shadow(-0px -0px -0px #B2BBC7);
 }
 .weather-area:hover .weather-icon{
-  -webkit-filter:brightness(60%);
-  filter: drop-shadow(8px 10px 0px #BEBEBE88)
+  -webkit-filter: drop-shadow(10px 10px 5px #B2BBC7) brightness(105%);
+  filter: drop-shadow(10px 10px 5px #B2BBC7) brightness(105%);
+}
+.weather-area:hover .weather-info{
+  -webkit-filter: drop-shadow(10px 10px 5px #B2BBC7);
+  filter: drop-shadow(10px 10px 5px #B2BBC7);
 }
 .weather-info{
   width: 160px;
@@ -87,6 +92,7 @@ const leaveHover = function () {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: 0.3s ease-out;
   align-items: flex-end;
 }
 .weather-location{
@@ -114,15 +120,4 @@ const leaveHover = function () {
   justify-content: center;
   align-items: center;
 }
-/* s1-enter-from,
-s1-leave-to{
- opacity: 0;
-}
-s1-leave-from,
-s1-enter-to{
-  opacity: 1;
-}
-s1-enter-active{
-  transition: all 0.1s ease-in;
-} */
 </style>

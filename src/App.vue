@@ -12,7 +12,7 @@ body{
   margin: 0;
   background-color: #F2F2F2;
   font-weight: 600;
-  min-width: 1440px;
+  min-width: 660px;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
 }
 #app {
@@ -20,7 +20,7 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #666666;
+  color: #5D6268;
   font-family: PingFangSC-Semibold, sans-serif;
   /*margin-top: 60px;*/
   display: flex;

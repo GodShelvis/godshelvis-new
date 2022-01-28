@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tencent-doc</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-209.000000, -892.000000)">
+            <g id="tencent-doc" transform="translate(209.000000, 892.000000)">
+                <rect id="矩形" x="0" y="0" width="70" height="70"></rect>
+                <text id="腾讯文档" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#3470F6">
+                    <tspan x="3" y="41">腾讯文档</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

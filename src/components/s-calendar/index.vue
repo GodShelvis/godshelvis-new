@@ -41,11 +41,11 @@ for (let i = 0; i < 7; i++) {
   border-radius: 10px;
   border: 5px #F2F2F2 solid;
   box-sizing: border-box;
-  box-shadow: -0px -0px 0px #FFFFFF inset, 0px 0px 0px #CECECE inset, -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
+  box-shadow: -0px -0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset, -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
   transition: 0.2s;
 }
 .calendar-area:hover{
-  box-shadow: -5px -5px 15px #FFFFFF inset, 5px 5px 15px #CECECE inset, -5px -5px 15px #FFFFFF, 5px 5px 15px #CECECE;
+  box-shadow: -5px -5px 15px #FFFFFF inset, 5px 5px 15px #B2BBC7 inset, -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7;
 }
 .calendar-header{
   width: calc( 100% - 30px );
@@ -82,12 +82,12 @@ for (let i = 0; i < 7; i++) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #CECECE;
+  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #B2BBC7;
   transition: 0.2s;
 }
 .calendar-day:hover{
-  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
-  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #CECECE;
+  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
+  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #B2BBC7;
 }
 .calendar-day-today{
   width: 60px;
@@ -97,12 +97,12 @@ for (let i = 0; i < 7; i++) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: -1px -1px 1px 0 #FFFFFF, 1px 1px 1px 0 #CECECE,-1px -1px 1px 0 #FFFFFF inset, 1px 1px 1px 0 #CECECE inset;
+  box-shadow: -1px -1px 1px 0 #FFFFFF, 1px 1px 1px 0 #B2BBC7,-1px -1px 1px 0 #FFFFFF inset, 1px 1px 1px 0 #B2BBC7 inset;
   transition: 0.2s;
 }
 .calendar-day-today:hover{
-  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #CECECE;
-  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #CECECE, 0px 0px 0px #FFFFFF inset, 0px 0px 0px #CECECE inset;
+  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
+  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #B2BBC7, 0px 0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset;
 }
 .weekday{
   color: #F26C6C;
@@ -110,7 +110,7 @@ for (let i = 0; i < 7; i++) {
   font-size: 12px;
 }
 .date{
-  color: #6666667f;
+  color: #979FAA;
   font-weight: 600;
   font-size: 25px;
 }

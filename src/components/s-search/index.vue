@@ -66,26 +66,26 @@ const redirectTo = ()=>{
   margin: 2px 5px 2px 0;
 }
 .search-input{
-  width: 100%;
+  width: calc( 100% - 20px );
   height: 80px;
   background-color: #F2F2F2;
   border-radius: 5px;
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #CECECE inset;
+  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
   border: none;
   outline: none;
-  color: #666666;
   padding-left: 20px;
   font-size: 30px;
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
-  text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #CECECE;
-  caret-color: #666666;
+  text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #B2BBC7;
+  caret-color: #979FAA;
+  color: #5D6268;
   transition: 0.2s;
 }
 .search-input:hover{
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #b3b3b3 inset;
+  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
 }
 .search-input:focus{
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #b3b3b3 inset;
+  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
 }
 </style>
