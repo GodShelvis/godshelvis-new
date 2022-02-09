@@ -4,7 +4,22 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from '@vue/runtime-core'
 import Home from './views/home/index'
+import { user, login, UserInfo } from './store'
+
+onMounted(()=>{
+  let local = localStorage.getItem("store")  
+  if (local && !user.username) {
+    let u:UserInfo = JSON.parse(local)
+    login(u)
+  }
+  window.addEventListener("beforeunload",()=>{
+    if (user.username) {
+      localStorage.setItem("store",JSON.stringify(user))
+    }
+  })
+})
 </script>
 
 <style>
@@ -37,28 +52,11 @@ body{
   user-select: none; /* Non-prefixed version, currently */
 }
 
-/* @font-face {
-  font-family: PingFangSC-Light;
-  src: url('/static/fonts/PingFangSC-Light.ttf');
-} */
-/* @font-face {
-  font-family: PingFangSC-Medium;
-  src: url('/static/fonts/PingFangSC-Medium.ttf');
-} */
-/* @font-face {
-  font-family: PingFangSC-Regular;
-  src: url('/static/fonts/PingFangSC-Regular.ttf');
+/* 调色板 */
+.text-gray{
+  color: #979FAA;
 }
-@font-face {
-  font-family: PingFangSC-Semibold;
-  src: url('/static/fonts/PingFangSC-Semibold.ttf');
-} */
-/* @font-face {
-  font-family: PingFangSC-Thin;
-  src: url('/static/fonts/PingFangSC-Thin.ttf');
+.text-gray2{
+  color: #5D6268;
 }
-@font-face {
-  font-family: PingFangSC-Ultralight;
-  src: url('/static/fonts/PingFangSC-Ultralight.ttf');
-} */
 </style>

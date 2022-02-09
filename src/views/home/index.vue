@@ -3,46 +3,28 @@
     <div class="home-layor">
       <div class="home-list">
         <SSearch style="width: 540px"></SSearch>
-        <!-- <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks1"></SBookmark> -->
-        <!-- <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks2"></SBookmark> -->
-        <!-- <SBookmark style="margin-top: 30px" v-model:bookmark="bookmarks3"></SBookmark> -->
+        <!-- 书签 -->
         <Swiper style="width: 600px;" :mousewheel="true">
           <swiper-slide v-for="(group,index) in bookmarks" :key="index">
             <div class="icon-group">
               <SBookmarkIcon :name="bookmark.icon" :url="bookmark.url" v-for="(bookmark,index) in group" :key="index"></SBookmarkIcon>
-              <!-- <SBookmarkIcon name="douyu"></SBookmarkIcon>
-              <SBookmarkIcon name="yinfans"></SBookmarkIcon>
-              <SBookmarkIcon name="youtube"></SBookmarkIcon>
-              <SBookmarkIcon name="taobao"></SBookmarkIcon>
-              <SBookmarkIcon name="jd"></SBookmarkIcon> -->
             </div>
           </swiper-slide>
-          <!-- <swiper-slide>
-            <div class="icon-group">
-              <SBookmarkIcon name="zhihu"></SBookmarkIcon>
-              <SBookmarkIcon name="macwk"></SBookmarkIcon>
-              <SBookmarkIcon name="aliyun"></SBookmarkIcon>
-              <SBookmarkIcon name="github"></SBookmarkIcon>
-              <SBookmarkIcon name="tencent-doc"></SBookmarkIcon>
-              <SBookmarkIcon name="gmail"></SBookmarkIcon>
-            </div>
-          </swiper-slide> -->
         </Swiper>
+        <!-- 哔哩哔哩关注列表 -->
+        user.bilibiliUid{{user.bilibiliUid}}
+        <SBilibili v-if="user.bilibiliUid"></SBilibili>
+        <!-- 日历 -->
         <SCalendar style="width: 540px; margin: 0 25px 30px 25px"></SCalendar>
         <div style="width: 540px; display: flex; flex-direction: row; justify-content: space-between;">
+          <!-- 天气 -->
           <SWeather></SWeather>
+          <!-- 时钟 -->
           <SClock></SClock>
         </div>
+        <!-- 翻译 -->
         <STranslate style="width: 540px; margin-top: 30px"></STranslate>
       </div>
-      <!-- <div class="plugin-list">
-        <SCalendar style="margin-bottom: 30px"></SCalendar>
-        <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
-          <SWeather></SWeather>
-          <SClock></SClock>
-        </div>
-        <STranslate style="margin-top: 30px"></STranslate>
-      </div> -->
     </div>
     <div class="beian-area">
       <a class="beian" href="http://beian.miit.gov.cn/">鄂ICP备19004172号-1</a>
@@ -60,12 +42,15 @@ import SCalendar from '../../components/s-calendar'
 import SWeather from '../../components/s-weather'
 import SClock from '../../components/s-clock'
 import STranslate from '../../components/s-translate'
+import SBilibili from '../../components/s-bilibili'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Mousewheel } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/mousewheel'
+
+import { user } from "../../store"
 
 SwiperCore.use([Mousewheel])
 
