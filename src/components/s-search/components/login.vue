@@ -15,14 +15,14 @@
 
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import { defineEmit } from "@vue/runtime-core";
+import { defineEmits } from "@vue/runtime-core";
 import { user, login, UserInfo, logout } from "../../../store"
 
 
 const username = ref('')
 const password = ref('')
 
-const emit = defineEmit(['trigger-clean'])
+const emit = defineEmits(['trigger-clean'])
 
 const submitLogin = ()=>{
   if (username.value == 'admin' && password.value == 'admin') {

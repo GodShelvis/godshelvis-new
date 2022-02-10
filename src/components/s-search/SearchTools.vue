@@ -5,11 +5,11 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmit } from "@vue/runtime-core";
+import { defineProps, defineEmits } from "@vue/runtime-core";
 import login from "./components/login.vue";
 
 defineProps(['toolname'])
-const emit = defineEmit(['trigger-clean'])
+const emit = defineEmits(['trigger-clean'])
 
 // 关键词
 const keywords = {

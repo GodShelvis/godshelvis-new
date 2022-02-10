@@ -15,5 +15,14 @@ export default defineConfig({
   },
   build: {
     outDir: 'ROOT'
+  },
+  server: {
+    proxy: {
+      '/bilibili/api': {
+        target: 'http://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/bilibili\/api/, '')
+      }
+    }
   }
 })

@@ -12,7 +12,6 @@
           </swiper-slide>
         </Swiper>
         <!-- 哔哩哔哩关注列表 -->
-        user.bilibiliUid{{user.bilibiliUid}}
         <SBilibili v-if="user.bilibiliUid"></SBilibili>
         <!-- 日历 -->
         <SCalendar style="width: 540px; margin: 0 25px 30px 25px"></SCalendar>
