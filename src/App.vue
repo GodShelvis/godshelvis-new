@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import { onMounted } from '@vue/runtime-core'
-import Home from './views/home/index'
+import Home from './views/home/index.vue'
 import { user, login, UserInfo } from './store'
 
 onMounted(()=>{

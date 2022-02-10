@@ -2,27 +2,29 @@
   <div class="home-space">
     <div class="home-layor">
       <div class="home-list">
-        <SSearch style="width: 540px"></SSearch>
-        <!-- 书签 -->
-        <Swiper style="width: 600px;" :mousewheel="true">
-          <swiper-slide v-for="(group,index) in bookmarks" :key="index">
-            <div class="icon-group">
-              <SBookmarkIcon :name="bookmark.icon" :url="bookmark.url" v-for="(bookmark,index) in group" :key="index"></SBookmarkIcon>
-            </div>
-          </swiper-slide>
-        </Swiper>
-        <!-- 哔哩哔哩关注列表 -->
-        <SBilibili v-if="user.bilibiliUid"></SBilibili>
-        <!-- 日历 -->
-        <SCalendar style="width: 540px; margin: 0 25px 30px 25px"></SCalendar>
-        <div style="width: 540px; display: flex; flex-direction: row; justify-content: space-between;">
-          <!-- 天气 -->
-          <SWeather></SWeather>
-          <!-- 时钟 -->
-          <SClock></SClock>
+        <div style="width: 600px;transition: 0.3s;" v-if="viewMode == 'base'">
+          <SSearch style="width: 540px; margin: 0 25px 0 25px"></SSearch>
+          <!-- 书签 -->
+          <Swiper style="width: 600px;" :mousewheel="true">
+            <swiper-slide v-for="(group,index) in bookmarks" :key="index">
+              <div class="icon-group">
+                <SBookmarkIcon :name="bookmark.icon" :url="bookmark.url" v-for="(bookmark,index) in group" :key="index"></SBookmarkIcon>
+              </div>
+            </swiper-slide>
+          </Swiper>
+          <!-- 日历 -->
+          <SCalendar style="width: 540px; margin: 0 25px 30px 25px"></SCalendar>
+          <div style="width: 540px; margin: 0 25px 0 25px; display: flex; flex-direction: row; justify-content: space-between;">
+            <!-- 天气 -->
+            <SWeather></SWeather>
+            <!-- 时钟 -->
+            <SClock></SClock>
+          </div>
+          <!-- 翻译 -->
+          <STranslate style="width: 540px; margin: 25px 25px 0 25px"></STranslate>
         </div>
-        <!-- 翻译 -->
-        <STranslate style="width: 540px; margin-top: 30px"></STranslate>
+        <!-- 哔哩哔哩关注列表 -->
+        <SBilibili style="margin-top: 25px" v-if="user.bilibiliUid" @trigger-play="openVideoMode"></SBilibili>
       </div>
     </div>
     <div class="beian-area">
@@ -34,14 +36,14 @@
 </template>
 
 <script setup lang="ts">
-import SSearch from '../../components/s-search'
-import SBookmark from '../../components/s-bookmark'
+import SSearch from '../../components/s-search/index.vue'
+import SBookmark from '../../components/s-bookmark/index.vue'
 import SBookmarkIcon from '../../components/s-bookmark/BookmarkIcon.vue'
-import SCalendar from '../../components/s-calendar'
-import SWeather from '../../components/s-weather'
-import SClock from '../../components/s-clock'
-import STranslate from '../../components/s-translate'
-import SBilibili from '../../components/s-bilibili'
+import SCalendar from '../../components/s-calendar/index.vue'
+import SWeather from '../../components/s-weather/index.vue'
+import SClock from '../../components/s-clock/index.vue'
+import STranslate from '../../components/s-translate/index.vue'
+import SBilibili from '../../components/s-bilibili/index.vue'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Mousewheel } from 'swiper';
@@ -49,9 +51,12 @@ import SwiperCore, { Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel'
 
-import { user } from "../../store"
+import { user } from "../../store/index"
+import { ref } from '@vue/reactivity'
 
 SwiperCore.use([Mousewheel])
+
+const viewMode = ref('base')
 
 const bookmarks = [
   [
@@ -131,6 +136,11 @@ const bookmarks = [
     }
   ]
 ]
+
+const openVideoMode = (play:boolean)=>{
+  viewMode.value = play?'video':'base'
+}
+
 </script>
 
 <style scoped>
@@ -150,7 +160,7 @@ const bookmarks = [
   align-items: center;
 }
 .home-list{
-  margin: 50px 75px 0px;
+  margin: 30px 75px 0px;
   width: 600px;
   min-height: 880px;
   /*background-color: #4f3535;*/
@@ -197,7 +207,7 @@ a:active{text-decoration:none;}
 .icon-group{
   width: 600px;
   height: 80px;
-  padding: 30px 24px;
+  padding: 25px 24px;
   display: flex;
   flex-direction: row;
 }

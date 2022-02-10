@@ -1,11 +1,12 @@
 <template>
   <div class="bilibili-space">
+    <iframe v-if="currentAid!=''" class="bili-player" :src="`//player.bilibili.com/player.html?aid=${currentAid}`"> </iframe>
     <Swiper v-if="followLoadOK" style="width: 600px;" :mousewheel="true">
       <swiper-slide v-for="(list,index) in video.page" :key="index">
         <div class="card-group">
-          <div class="card" v-for="(card, index) in list" :key="index">
-            <img class="card-image" :src="decodeCard(card.card).pic" alt="">
-            <p class="card-title">{{decodeCard(card.card).title}}</p>
+          <div class="card" v-for="(card, index) in list" :key="index" @contextmenu.prevent="playVideo(card.aid)" @click="jumpToVideo(card.aid)">
+            <img class="card-image" :src="card.pic" alt="">
+            <p class="card-title no-select">{{card.title}}</p>
           </div>
         </div>
       </swiper-slide>
@@ -13,7 +14,7 @@
     <div v-else class="bind" style="width: calc( 100% - 60px );">
       <input class="sessdata-input" placeholder="请先绑定SESSDATA" v-model="sessdata">
       <div class="bind-button no-select" @click="submitBind(sessdata, user.bilibiliUid)">
-        <p>绑定</p>
+        <div>绑定</div>
       </div>
     </div>
   </div>
@@ -30,6 +31,8 @@ import 'swiper/css/mousewheel'
 import { user } from "../../store"
 import axios from 'axios';
 import { reactive, ref } from '@vue/reactivity';
+import { defineEmits } from "@vue/runtime-core";
+const emit = defineEmits(['trigger-play'])
 
 SwiperCore.use([Mousewheel])
 
@@ -56,13 +59,13 @@ const loadFollow = (bilibiliUid:string)=>{
         let arr:Array<Object> = []
         for (let j = 0; j < 3; j++) {
           if (i*3+j<res.data.data.cards.length) {            
-            arr.push(res.data.data.cards[i*3+j])
+            arr.push(decodeCard(res.data.data.cards[i*3+j].card))
           }
         }        
         video.page.push(arr)
       }
       console.log(video.page);
-      
+      followLoadOK.value = true
     }
   })
 }
@@ -80,6 +83,27 @@ const decodeCard = (info:string)=>{
   let card:Card = JSON.parse(info)
   console.log(card);
   return card;
+}
+
+//
+const currentAid = ref('')
+const playVideo = (aid:string)=>{
+  if (currentAid.value == aid) {
+    currentAid.value = ''
+    emit('trigger-play',false)
+  } else {
+    currentAid.value = aid
+    emit('trigger-play',true)
+  }
+}
+
+const jumpToVideo = (aid:number)=>{
+  if (currentAid.value != '') {
+    currentAid.value = ''
+    emit('trigger-play',false)
+  } else {
+    window.open(`https://www.bilibili.com/video/av${aid}`)
+  }
 }
 
 // 如果登录了且有bilibili uid,就加载关注列表
@@ -132,12 +156,13 @@ type Card = {
     tname: string //"美食侦探",
     videos: number //包含视频数
 }
+
 </script>
 
-<style>
+<style scoped>
 .bilibili-space{
   width: 100%;
-  margin: 0 0 30px 0;
+  margin: 0;
 }
 .bind{
   display: flex;
@@ -181,7 +206,7 @@ type Card = {
 }
 .card-group{
   width: 540px;
-  padding: 30px 30px;
+  padding: 0px 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -192,18 +217,25 @@ type Card = {
 .card-image{
   width: 160px;
   border-radius: 5px;
+  transition: 0.3s;
+  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
+}
+.card-image:hover{
+  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #B2BBC7;
 }
 .card-title{
   width: 160px;
-  height: 34px;
   font-size: 12px;
-  margin-block-start: 5px;
-  margin-block-end: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 5px 0
+}
+.bili-player{
+  width: 570px;
+  height: 643px;
+  border-radius: 5px;
+  margin: 0 0 25px 0;
 }
 </style>
