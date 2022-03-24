@@ -37,33 +37,34 @@ for (let i = 0; i < 7; i++) {
 .calendar-area{
   width: 100%;
   height: 160px;
-  background-color: #F2F2F2;
+  background-color: var(--bg);
   border-radius: 10px;
-  border: 5px #F2F2F2 solid;
+  border: 5px var(--bg) solid;
   box-sizing: border-box;
-  box-shadow: -0px -0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset, -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
+  box-shadow: -0px -0px 0px var(--shadow-light) inset, 0px 0px 0px var(--shadow-dark) inset, -1px -1px 1px var(--shadow-light), 1px 1px 1px var(--shadow-dark);
   transition: 0.2s;
 }
 .calendar-area:hover{
-  box-shadow: -5px -5px 15px #FFFFFF inset, 5px 5px 15px #B2BBC7 inset, -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7;
+  box-shadow: 0px 0px 0px var(--shadow-light) inset, 0px 0px 0px var(--shadow-dark) inset, -10px -10px 20px var(--shadow-light), 10px 10px 20px var(--shadow-dark);
 }
 .calendar-header{
   width: calc( 100% - 30px );
   height: 60px;
-  background-color: #F15959;
+  background-color: var(--content);
   border-radius: 10px 10px 0 0;
-  box-shadow: 0px 0px 0px 0 #B61919 inset;
+  box-shadow: 0px 0px 0px 0 var(--shadow-dark) inset;
   padding: 0 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: #F2F2F2;
+  color: var(--bg);
   font-size: 20px;
   transition: 0.2s;
 }
 .calendar-area:hover .calendar-header{
-  box-shadow: 5px 5px 15px 0 #B61919 inset;
+  /* background-color: var(--primary); */
+  /* box-shadow: 5px 5px 15px -5px var(--shadow-dark) inset,-5px 5px 5px -5px var(--shadow-dark) inset; */
 }
 .mini-calendar{
   width: calc( 100% - 30px );
@@ -82,12 +83,12 @@ for (let i = 0; i < 7; i++) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #B2BBC7;
+  box-shadow: -0px -0px 0px var(--shadow-light), 0px 0px 0px var(--shadow-dark);
   transition: 0.2s;
 }
 .calendar-day:hover{
-  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
-  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #B2BBC7;
+  /* text-shadow: -1px -1px 1px var(--shadow-light), 1px 1px 1px var(--shadow-dark); */
+  box-shadow: -5px -5px 15px var(--shadow-light), 5px 5px 15px var(--shadow-dark);
 }
 .calendar-day-today{
   width: 60px;
@@ -97,26 +98,35 @@ for (let i = 0; i < 7; i++) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: -1px -1px 1px 0 #FFFFFF, 1px 1px 1px 0 #B2BBC7,-1px -1px 1px 0 #FFFFFF inset, 1px 1px 1px 0 #B2BBC7 inset;
+  box-shadow: -1px -1px 1px 0 var(--shadow-light), 1px 1px 1px 0 var(--shadow-dark),-1px -1px 1px 0 var(--shadow-light) inset, 1px 1px 1px 0 var(--shadow-dark) inset;
   transition: 0.2s;
 }
 .calendar-day-today:hover{
-  text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
-  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #B2BBC7, 0px 0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset;
+  text-shadow: -1px -1px 1px var(--shadow-light), 1px 1px 1px var(--shadow-dark);
+  box-shadow: -5px -5px 15px var(--shadow-light), 5px 5px 15px var(--shadow-dark), 0px 0px 0px var(--shadow-light) inset, 0px 0px 0px var(--shadow-dark) inset;
 }
 .weekday{
-  color: #F26C6C;
+  color: var(--primary);
   font-weight: 600;
   font-size: 12px;
 }
+.calendar-area:hover .weekday{
+  color: var(--primary);
+}
 .date{
-  color: #979FAA;
+  color: var(--content);
   font-weight: 600;
   font-size: 25px;
 }
+.calendar-day:hover .date{
+  color: var(--primary);
+}
 .date-today{
-  color: #F15959;
+  color: var(--primary);
   font-weight: 600;
   font-size: 25px;
+}
+.calendar-area:hover .date-today{
+  color: var(--primary);
 }
 </style>

@@ -5,7 +5,7 @@
         <g id="图标" transform="translate(-209.000000, -797.000000)">
             <g id="macwk" transform="translate(209.000000, 797.000000)">
                 <rect id="矩形" x="0" y="0" width="70" height="70"></rect>
-                <text id="MacWK" font-family="PingFangSC-Semibold, PingFang SC" font-size="16" font-weight="500" fill="#000000">
+                <text id="MacWK" font-family="PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="500" fill="var(--icon-color,#000000)">
                     <tspan x="5.752" y="41">MacWK</tspan>
                 </text>
             </g>

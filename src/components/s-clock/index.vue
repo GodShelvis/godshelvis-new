@@ -30,29 +30,29 @@ const getNowTime = () => {
 getNowTime()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .clock-area{
   width: 160px;
   height: 160px;
   border-radius: 80px;
-  background-color: #798c7e;
-  border: 5px #F2F2F2 solid;
+  background-color: var(--bg);
+  border: 5px var(--bg) solid;
   box-sizing: border-box;
-  box-shadow: -1px -1px 2px #FFFFFF, 1px 1px 2px #B2BBC7, 2px 2px 20px #000000cc inset;
+  box-shadow: -1px -1px 2px var(--shadow-light), 1px 1px 2px var(--shadow-dark), 0px 0px 0px var(--shadow-inset) inset;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: 0.2s;
-  color: #000000cc;
+  color: var(--content);
 }
 .clock-area:hover{
-  background-color: #b1cbb7;
-  border: 5px #F2F2F2 solid;
-  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7, 2px 2px 20px #000000cc inset;
+  background-color: var(--bg);
+  border: 5px var(--bg) solid;
+  box-shadow: -10px -10px 20px var(--shadow-light), 10px 10px 20px var(--shadow-dark), 1px 1px 0px var(--shadow-inset) inset;
 }
 .clock-area:hover p{
-  color: #000000cc;
+  color: var(--primary);
 }
 .clock-title{
   margin: 0;

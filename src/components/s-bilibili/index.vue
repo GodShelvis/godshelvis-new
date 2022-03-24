@@ -1,20 +1,20 @@
 <template>
   <div class="bilibili-space">
-    <iframe v-if="currentAid!=''" class="bili-player" :src="`//player.bilibili.com/player.html?aid=${currentAid}`"> </iframe>
-    <Swiper v-if="followLoadOK" style="width: 600px;" :mousewheel="true">
-      <swiper-slide v-for="(list,index) in video.page" :key="index">
+    <!-- <iframe v-if="currentAid!=''" class="bili-player" :src="`//player.bilibili.com/player.html?aid=${currentAid}`"> </iframe> -->
+    <Swiper v-if="followLoadOK" style="width: 315px;padding: 25px 0" :mousewheel="true">
+      <swiper-slide v-for="(card,index) in video.page" :key="index">
         <div class="card-group">
-          <div class="card" v-for="(card, index) in list" :key="index" @contextmenu.prevent="playVideo(card.aid)" @click="jumpToVideo(card.aid)">
+          <div class="card" @click="jumpToVideo(card.aid)">
             <img class="card-image" :src="card.pic" alt="">
             <p class="card-title no-select">{{card.title}}</p>
           </div>
         </div>
       </swiper-slide>
     </Swiper>
-    <div v-else class="bind" style="width: calc( 100% - 60px );">
-      <input class="sessdata-input" placeholder="请先绑定SESSDATA" v-model="sessdata">
+    <div v-else class="bind">
+      <input class="sessdata-input" placeholder="绑定SESSDATA后使用" v-model="sessdata">
       <div class="bind-button no-select" @click="submitBind(sessdata, user.bilibiliUid)">
-        <div>绑定</div>
+        <div>获取bilibili关注列表</div>
       </div>
     </div>
   </div>
@@ -49,22 +49,20 @@ const loadFollow = (bilibiliUid:string)=>{
   axios({
     url: myFollowApi
   }).then((res)=>{
-    console.log(res);
+    // console.log(res);
     if (res.data.code == -6) {
       followLoadOK.value = false
     } else if (res.data.code == 0) {
       newnum.value = res.data.data.new_num
       video.page = []
-      for (let i = 0; i < res.data.data.cards.length/3; i++) {
-        let arr:Array<Object> = []
-        for (let j = 0; j < 3; j++) {
-          if (i*3+j<res.data.data.cards.length) {            
-            arr.push(decodeCard(res.data.data.cards[i*3+j].card))
-          }
-        }        
-        video.page.push(arr)
+      
+      // 新视频逆序加载, 之后其余顺序加载
+      for (let i = newnum.value-1; i >= 0; i--) {
+        video.page.push(decodeCard(res.data.data.cards[i].card))
       }
-      console.log(video.page);
+      for (let i = newnum.value; i < res.data.data.cards.length; i++) {
+        video.page.push(decodeCard(res.data.data.cards[i].card))
+      }
       followLoadOK.value = true
     }
   })
@@ -81,7 +79,6 @@ const submitBind = (sessdata:string, bilibiliUid:string)=>{
 //解析card
 const decodeCard = (info:string)=>{
   let card:Card = JSON.parse(info)
-  console.log(card);
   return card;
 }
 
@@ -161,76 +158,112 @@ type Card = {
 
 <style scoped>
 .bilibili-space{
-  width: 100%;
-  margin: 0;
+  width: 315px;
+  height: 160px;
+  margin: 0 0 25px 0;
 }
 .bind{
+  width: 245px;
+  height: 160px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0px 30px 0 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 25px;
 }
 .sessdata-input{
-  width: calc( 100% - 120px );
+  width: 223px;
   height: 50px;
-  background-color: #F2F2F2;
+  background-color: var(--bg);
   border-radius: 5px;
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
+  box-shadow: -2px -2px 2px 0 var(--shadow-light) inset, 2px 2px 2px 0 var(--shadow-dark) inset;
   border: none;
   outline: none;
   padding-left: 20px;
   font-size: 20px;
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
-  text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #B2BBC7;
-  caret-color: #979FAA;
-  color: #5D6268;
+  text-shadow: -2px -2px 2px var(--shadow-light), 2px 2px 2px var(--shadow-dark);
+  caret-color: var(--input-caret-color);
+  color: var(--input-color);
 }
 .sessdata-input::-webkit-input-placeholder{
   text-shadow: none;
-  color: #D1D8E2;
+  color: var(--input-placeholder);
 }
 .bind-button{
-  width: 90px;
-  height: 50px;
-  background-color: #E3EFFC;
+  width: 160px;
+  height: 40px;
+  background-color: var(--primary);
   border-radius: 5px;
-  color: #95B9E8;
+  color: var(--shadow-light);
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: 0.2s;
+  box-shadow: -1px -1px 2px var(--shadow-light), 1px 1px 2px var(--shadow-dark), 0px 0px 0px var(--shadow-inset) inset;
+}
+.bind-button:hover{
+  box-shadow: -3px -3px 5px var(--shadow-light), 3px 3px 5px var(--shadow-dark), 0px 0px 0px var(--shadow-inset) inset;
 }
 .card-group{
-  width: 540px;
+  height: 160px;
   padding: 0px 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .card{
-  width: 160px;
+  width: 255px;
+  border-radius: 15px;
+  background-color: var(--bg);
+  border: 5px var(--bg) solid;
+  box-sizing: border-box;
+  box-shadow: -1px -1px 2px var(--shadow-light), 1px 1px 2px var(--shadow-dark), 0px 0px 0px var(--shadow-inset) inset;
+  transition: 0.2s;
+}
+.card:hover{
+  box-shadow: -10px -10px 20px var(--shadow-light), 10px 10px 20px var(--shadow-dark), 0px 0px 0px var(--shadow-inset) inset;
 }
 .card-image{
-  width: 160px;
-  border-radius: 5px;
-  transition: 0.3s;
-  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
+  width: 245px;
+  height: 150px;
+  border-radius: 10px;
+  filter: brightness(100%) opacity(30%);
+  transition: 0.2s;
+  /* transition: 0.3s; */
+  /* box-shadow: -1px -1px 1px var(--shadow-light), 1px 1px 1px var(--shadow-dark); */
 }
-.card-image:hover{
-  box-shadow: -5px -5px 15px #FFFFFF, 5px 5px 15px #B2BBC7;
+.card:hover .card-image{
+  filter: brightness(105%) opacity(100%);
 }
 .card-title{
-  width: 160px;
+  height: 30px;
+  text-align: end;
+  position: absolute;
+  color: white;
+  bottom: 0px;
+  right: 35px;
+  width: 225px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  background-image: linear-gradient(to left top, var(--shadow-inset), var(--shadow-inset));
   font-size: 12px;
   display: -webkit-box;
-  -webkit-box-orient: vertical;
+  /* -webkit-box-orient: vertical; */
   -webkit-line-clamp: 2;
   overflow: hidden;
-  margin: 5px 0
+  margin: 5px 0;
+  transition: 0.2s;
+}
+.card:hover .card-title{
+  background-image: linear-gradient(to left top, #000000, #0000004d);
 }
 .bili-player{
   width: 570px;

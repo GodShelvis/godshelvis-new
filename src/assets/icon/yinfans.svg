@@ -5,7 +5,7 @@
         <g id="图标" transform="translate(-294.000000, -882.000000)">
             <g id="yinfans" transform="translate(294.000000, 882.000000)">
                 <rect id="矩形" x="0" y="0" width="70" height="70"></rect>
-                <text id="音范丝" font-family="ZhenyanGB-Regular, ZhenyanGB" font-size="20" font-weight="normal" fill="#000000">
+                <text id="音范丝" font-family="ZhenyanGB-Regular, ZhenyanGB,sans-serif" font-size="20" font-weight="normal" fill="var(--icon-color,#000000)">
                     <tspan x="5" y="42">音范丝</tspan>
                 </text>
             </g>

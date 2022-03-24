@@ -5,7 +5,7 @@
         <g id="图标" transform="translate(-209.000000, -967.000000)">
             <g id="gmail" transform="translate(209.000000, 967.000000)">
                 <rect id="矩形" x="0" y="0" width="70" height="70"></rect>
-                <text id="Gmail" font-family="PingFangSC-Semibold, PingFang SC" font-size="20" font-weight="500" fill="#B64530">
+                <text id="Gmail" font-family="PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="500" fill="var(--icon-color,#B64530)">
                     <tspan x="8.18" y="42">Gmail</tspan>
                 </text>
             </g>

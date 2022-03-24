@@ -99,7 +99,7 @@ onMounted(()=>{
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .search-area{
   width: calc( 100% - 20px );
   min-height: 108px;
@@ -112,6 +112,7 @@ onMounted(()=>{
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 10px;
+  color: var(--primary);
 }
 
 .search-logo {
@@ -121,25 +122,25 @@ onMounted(()=>{
 .search-input{
   width: calc( 100% - 20px );
   height: 80px;
-  background-color: #F2F2F2;
+  background-color: var(--bg);
   border-radius: 5px;
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
+  box-shadow: -2px -2px 2px 0 var(--shadow-light) inset, 2px 2px 2px 0 var(--shadow-dark) inset;
   border: none;
   outline: none;
   padding-left: 20px;
   font-size: 30px;
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif;
-  text-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #B2BBC7;
-  caret-color: #979FAA;
-  color: #5D6268;
+  text-shadow: -2px -2px 2px var(--shadow-light), 2px 2px 2px var(--shadow-dark);
+  caret-color: var(--content);
+  color: var(--primary);
   transition: 0.2s;
 }
 .search-input:hover{
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
+  box-shadow: -2px -2px 2px 0 var(--shadow-light) inset, 2px 2px 2px 0 var(--shadow-dark) inset;
 }
 .search-input:focus{
-  box-shadow: -2px -2px 2px 0 #FFFFFF inset, 2px 2px 2px 0 #B2BBC7 inset;
+  box-shadow: -2px -2px 2px 0 var(--shadow-light) inset, 2px 2px 2px 0 var(--shadow-dark) inset;
 }
 .keywords-list-empty{
   display: flex;
@@ -160,5 +161,11 @@ onMounted(()=>{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.text-gray{
+  color: var(--content);
+}
+.text-gray2{
+  color: var(--primary);
 }
 </style>

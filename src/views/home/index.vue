@@ -13,18 +13,24 @@
             </swiper-slide>
           </Swiper>
           <!-- 日历 -->
-          <SCalendar style="width: 540px; margin: 0 25px 30px 25px"></SCalendar>
+          <SCalendar style="width: 540px; margin: 0 25px 25px 25px"></SCalendar>
           <div style="width: 540px; margin: 0 25px 0 25px; display: flex; flex-direction: row; justify-content: space-between;">
             <!-- 天气 -->
             <SWeather></SWeather>
             <!-- 时钟 -->
             <SClock></SClock>
           </div>
+          <div style="width: 570px; margin: 0px 25px 0 25px; display: flex; flex-direction: row; justify-content: space-between;">
+            <!-- 百度地图 -->
+            <SMap></SMap>
+            <!-- 哔哩哔哩关注列表 -->
+            <SBilibili @trigger-play="openVideoMode"></SBilibili>
+          </div>
           <!-- 翻译 -->
-          <STranslate style="width: 540px; margin: 25px 25px 0 25px"></STranslate>
-        </div>
+          <STranslate style="width: 540px; margin: 0px 25px 0 25px"></STranslate>
+        </div>        
         <!-- 哔哩哔哩关注列表 -->
-        <SBilibili style="margin-top: 25px" v-if="user.bilibiliUid" @trigger-play="openVideoMode"></SBilibili>
+        <!-- <SBilibili style="margin-top: 25px" v-if="user.bilibiliUid" @trigger-play="openVideoMode"></SBilibili> -->
       </div>
     </div>
     <div class="beian-area">
@@ -44,6 +50,7 @@ import SWeather from '../../components/s-weather/index.vue'
 import SClock from '../../components/s-clock/index.vue'
 import STranslate from '../../components/s-translate/index.vue'
 import SBilibili from '../../components/s-bilibili/index.vue'
+import SMap from '../../components/s-map/index.vue'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Mousewheel } from 'swiper';
@@ -51,7 +58,6 @@ import SwiperCore, { Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel'
 
-import { user } from "../../store/index"
 import { ref } from '@vue/reactivity'
 
 SwiperCore.use([Mousewheel])
@@ -162,8 +168,7 @@ const openVideoMode = (play:boolean)=>{
 .home-list{
   margin: 30px 75px 0px;
   width: 600px;
-  min-height: 880px;
-  /*background-color: #4f3535;*/
+  min-height: 940px;
   display: flex;
   flex-direction: column;
 }
@@ -171,7 +176,6 @@ const openVideoMode = (play:boolean)=>{
   margin: 50px 75px 0px;
   width: 540px;
   min-height: 880px;
-  /*background-color: #4f3535;*/
   display: flex;
   flex-direction: column;
 }
@@ -190,8 +194,8 @@ const openVideoMode = (play:boolean)=>{
 .beian{
   margin-right: 75px;
   font-size: 14px;
-  color: #ababab88;
-  text-shadow: -0px -0px 0px #ffffff, 0px 0px 0px #bdbdbd;
+  color: var(--content);
+  text-shadow: -0px -0px 0px var(--shadow-light), 0px 0px 0px var(--shadow-dark);
 }
 a{text-decoration: none;}
 a:visited{text-decoration: none;}
@@ -222,4 +226,5 @@ a:active{text-decoration:none;}
   width: 600px;
   height: 80px;
 }
+
 </style>

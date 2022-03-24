@@ -5,7 +5,7 @@
         <g id="图标" transform="translate(-294.000000, -967.000000)">
             <g id="zhihu" transform="translate(294.000000, 967.000000)">
                 <rect id="矩形" x="0" y="0" width="70" height="70"></rect>
-                <text id="知乎" font-family="PingFangSC-Semibold, PingFang SC" font-size="20" font-weight="500" fill="#2568F6">
+                <text id="知乎" font-family="PingFangSC-Regular, Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="500" fill="var(--icon-color,#2568F6)">
                     <tspan x="15" y="42">知乎</tspan>
                 </text>
             </g>

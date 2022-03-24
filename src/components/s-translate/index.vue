@@ -81,30 +81,30 @@ const copySuccess = () =>{
 .translate-area{
   width: 100%;
   /*min-height: 130px;*/
-  background: #F2F2F2;
+  background: var(--bg);
   border-radius: 30px;
   transition: 0.2s;
-  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7;
+  box-shadow: -1px -1px 1px var(--shadow-light), 1px 1px 1px var(--shadow-dark);
   display: flex;
   flex-direction: column;
 }
 .translate-area:hover{
-  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7;
+  box-shadow: -10px -10px 20px var(--shadow-light), 10px 10px 20px var(--shadow-dark);
 }
 .translate-input{
   width: calc( 100% - 10px );
   height: 50px;
-  background: #F2F2F2;
+  background: var(--bg);
   border-radius: 25px;
   margin: 5px;
-  box-shadow: 0px 0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset;
+  box-shadow: 0px 0px 0px var(--shadow-light) inset, 0px 0px 0px var(--shadow-dark) inset;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   transition: 0.2s;
 }
 .translate-input:hover{
-  box-shadow: -1px -1px 3px #FFFFFF inset, 1px 1px 3px #B2BBC7 inset;
+  box-shadow: -1px -1px 3px var(--shadow-light) inset, 1px 1px 3px var(--shadow-dark) inset;
 }
 .input-area{
   width: calc( 100% - 50px );
@@ -122,23 +122,23 @@ const copySuccess = () =>{
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
   padding-left: 18.5px;
-  caret-color: #979FAA;
-  color: #5D6268;
+  caret-color: var(--input-caret-color);
+  color: var(--input-color);
   background-color: transparent;
 }
 .translate-button{
   width: 46px;
   height: 46px;
-  background-color: #4C8FED;
+  background-color: var(--primary);
   border-radius: 23px;
-  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #B2BBC7;
+  box-shadow: -0px -0px 0px var(--shadow-light), 0px 0px 0px var(--shadow-dark);
   transition: 0.2s;
 }
 .translate-button:hover{
-  box-shadow: -2px -2px 2px #FFFFFF, 2px 2px 2px #B2BBC7;
+  box-shadow: -2px -2px 2px var(--shadow-light), 2px 2px 2px var(--shadow-dark);
 }
 .translate-button:active{
-  box-shadow: -0px -0px 0px #FFFFFF, 0px 0px 0px #B2BBC7;
+  box-shadow: -0px -0px 0px var(--shadow-light), 0px 0px 0px var(--shadow-dark);
 }
 .translate-output-before{
   width: 100%;
@@ -147,7 +147,7 @@ const copySuccess = () =>{
   font-size: 18px;
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
-  color: #3F3F3F;
+  color: var(--primary);
   transition: 0.2s linear;
 }
 .translate-output{
@@ -157,10 +157,10 @@ const copySuccess = () =>{
   font-size: 18px;
   font-weight: 600;
   font-family: PingFangSC-Regular, Microsoft YaHei, sans-serif;
-  color: #3F3F3F;
+  color: var(--primary);
   transition: 0.2s linear;
 }
 .copied{
-  color: #CECECE;
+  color: var(--content);
 }
 </style>

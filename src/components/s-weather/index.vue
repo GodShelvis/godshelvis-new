@@ -16,6 +16,7 @@
 import { ref } from 'vue'
 import fly from 'flyio'
 
+
 let longitude = ref(121.60);
 let latitude = ref(31.20);
 let location = ref('');
@@ -53,38 +54,38 @@ const leaveHover = function () {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .weather-area{
-  color: #5D6268;
+  color: var(--content);
   width: 350px;
   height: 160px;
   border-radius: 30px;
-  background-color: #F2F2F2;
-  border: 5px #F2F2F2 solid;
+  background-color: var(--bg);
+  border: 5px var(--bg) solid;
   box-sizing: border-box;
-  box-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #B2BBC7, 0px 0px 0px #FFFFFF inset, 0px 0px 0px #B2BBC7 inset;
-  transition: 0.2s;
+  box-shadow: -1px -1px 1px var(--shadow-light), 1px 1px 1px var(--shadow-dark), 0px 0px 0px var(--shadow-light) inset, 0px 0px 0px var(--shadow-dark) inset;
+  transition: 0.1s;
 }
 .weather-area:hover{
-  color: #5D6268;
-  background-color: #d2e6f5;
-  border: 5px #F2F2F2 solid;
-  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px #B2BBC7, -10px -10px 20px #e2eef7 inset, 10px 10px 20px #a9c8e0 inset;
+  color: var(--primary);
+  background-color: var(--bg);
+  border: 5px var(--bg) solid;
+  box-shadow: -10px -10px 20px var(--shadow-light), 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light) inset, 10px 10px 20px var(--shadow-dark) inset;
 }
 .weather-icon{
   margin-left: 20px;
   width: 160px;
   transition: 0.3s ease-out;
-  -webkit-filter: drop-shadow(-0px -0px -0px #B2BBC7);
-  filter: drop-shadow(-0px -0px -0px #B2BBC7);
+  -webkit-filter: drop-shadow(-0px -0px -0px var(--shadow-dark));
+  filter: drop-shadow(-0px -0px -0px var(--shadow-dark)) brightness(100%) opacity(50%);
 }
 .weather-area:hover .weather-icon{
-  -webkit-filter: drop-shadow(10px 10px 5px #B2BBC7) brightness(105%);
-  filter: drop-shadow(10px 10px 5px #B2BBC7) brightness(105%);
+  -webkit-filter: drop-shadow(10px 10px 5px var(--shadow-dark)) brightness(105%);
+  filter: drop-shadow(10px 10px 5px var(--shadow-dark)) brightness(105%) opacity(100%);
 }
 .weather-area:hover .weather-info{
-  -webkit-filter: drop-shadow(10px 10px 5px #B2BBC7);
-  filter: drop-shadow(10px 10px 5px #B2BBC7);
+  -webkit-filter: drop-shadow(10px 10px 5px var(--shadow-dark));
+  filter: drop-shadow(10px 10px 5px var(--shadow-dark));
 }
 .weather-info{
   width: 160px;
@@ -92,7 +93,7 @@ const leaveHover = function () {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: 0.3s ease-out;
+  transition: 0.2s;
   align-items: flex-end;
 }
 .weather-location{
